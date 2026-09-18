@@ -49,11 +49,12 @@ local menu        = "hyprlauncher"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
--- hl.on("hyprland.start", function () 
---   hl.exec_cmd(terminal)
---   hl.exec_cmd("nm-applet")
-hl.exec_cmd("waybar & hyprpaper & firefox")
--- end)
+ hl.on("hyprland.start", function () 
+  -- hl.exec_cmd(terminal)
+  -- hl.exec_cmd("nm-applet")
+     hl.exec_cmd("waybar")
+     hl.exec_cmd("hyprpaper")
+ end)
 
 
 -------------------------------
@@ -280,6 +281,9 @@ hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 -- Screnshoots
 hl.bind("PRINT", hl.dsp.exec_cmd("grim - | tee ~/Pictures/captura_$(date +%Y%m%d_%H%M%S).png | wl-copy"))
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tee ~/Pictures/captura_$(date +%Y%m%d_%H%M%S).png | wl-copy"))
+
+-- Wallpapers
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper-select.sh"))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
