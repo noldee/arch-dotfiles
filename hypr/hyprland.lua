@@ -14,6 +14,12 @@
 -- Create your files separately and then require them like this:
 -- require("myColors")
 
+-- Load dynamic pywal colors; fall back to defaults if not generated yet
+local ok, C = pcall(dofile, os.getenv("HOME") .. "/.cache/wal/colors-hyprland.lua")
+if not ok then
+	C = { color4 = "33ccff", color6 = "00ff99", color0 = "595959" } -- fallback colors
+end
+
 ------------------
 ---- MONITORS ----
 ------------------
@@ -47,8 +53,9 @@ local menu = "hyprlauncher"
 hl.on("hyprland.start", function()
 	-- hl.exec_cmd(terminal)
 	-- hl.exec_cmd("nm-applet")
-	hl.exec_cmd("waybar")
-	hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("awww-daemon")
+	hl.exec_cmd("sh -c 'sleep 0.5; awww restore'")
+	hl.exec_cmd("sh -c 'wal -R -n; waybar'")
 end)
 
 -------------------------------
@@ -91,8 +98,8 @@ hl.config({
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-			inactive_border = "rgba(595959aa)",
+			active_border = { colors = { "rgba(" .. C.color4 .. "ee)", "rgba(" .. C.color6 .. "ee)" }, angle = 45 },
+			inactive_border = "rgba(" .. C.color0 .. "aa)",
 		},
 
 		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
