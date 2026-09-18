@@ -1,34 +1,35 @@
 {
 	"layer": "top",
 	"position": "top",
-	"margin-top": 6,
+	"margin-top": 8,
 	"margin-left": 12,
 	"margin-right": 12,
-	"spacing": 6,
+	"spacing": 8,
 	"modules-left": [
 		"custom/launcher",
-		"clock",
 		"hyprland/workspaces"
 	],
 	"modules-center": [
 		"hyprland/window"
 	],
 	"modules-right": [
-		"temperature",
 		"pulseaudio",
 		"network",
+		"temperature",
+		"clock",
 		"custom/power"
 	],
+	// ─────────────────────────────────────
+	// Launcher
+	// ─────────────────────────────────────
 	"custom/launcher": {
 		"format": "󰣇",
 		"on-click": "wofi --show drun",
 		"tooltip": false
 	},
-	"clock": {
-		"format": "󰥔  {:%I:%M %p}",
-		"format-alt": "󰃭  {:%Y-%m-%d}",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-	},
+	// ─────────────────────────────────────
+	// Workspaces
+	// ─────────────────────────────────────
 	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
@@ -42,21 +43,23 @@
 			]
 		}
 	},
+	// ─────────────────────────────────────
+	// Active window
+	// ─────────────────────────────────────
 	"hyprland/window": {
 		"format": "{title}",
-		"max-length": 30,
+		"max-length": 45,
 		"rewrite": {
 			"": "Desktop"
 		},
 		"separate-outputs": true
 	},
-	"temperature": {
-		"critical-threshold": 80,
-		"format": " {temperatureC}°C"
-	},
+	// ─────────────────────────────────────
+	// Audio
+	// ─────────────────────────────────────
 	"pulseaudio": {
-		"format": "{icon} {volume}%",
-		"format-muted": "󰝟 Mute",
+		"format": "{icon}  {volume}%",
+		"format-muted": "󰝟  Muted",
 		"format-icons": {
 			"default": [
 				"󰕿",
@@ -64,15 +67,39 @@
 				"󰕾"
 			]
 		},
-		"on-click": "pavucontrol"
+		"scroll-step": 5,
+		"on-click": "pavucontrol",
+		"tooltip-format": "{desc}"
 	},
+	// ─────────────────────────────────────
+	// Network
+	// ─────────────────────────────────────
 	"network": {
-		"format-ethernet": "󰈀",
-		"format-wifi": "󰤨",
-		"format-disconnected": "󰤮",
-		"tooltip-format": "{ifname}: {ipaddr}",
+		"format-wifi": "󰤨  {essid}",
+		"format-ethernet": "󰈀  Ethernet",
+		"format-disconnected": "󰤮  Offline",
+		"tooltip-format": "{ifname}\n{ipaddr}",
 		"on-click": "nm-connection-editor"
 	},
+	// ─────────────────────────────────────
+	// Temperature
+	// ─────────────────────────────────────
+	"temperature": {
+		"critical-threshold": 80,
+		"format": "󰔏  {temperatureC}°C",
+		"tooltip-format": "CPU: {temperatureC}°C"
+	},
+	// ─────────────────────────────────────
+	// Clock
+	// ─────────────────────────────────────
+	"clock": {
+		"format": "󰥔  {:%H:%M}",
+		"format-alt": "󰃭  {:%a %d %b %Y}",
+		"tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt>{calendar}</tt>"
+	},
+	// ─────────────────────────────────────
+	// Power
+	// ─────────────────────────────────────
 	"custom/power": {
 		"format": "󰐥",
 		"on-click": "wlogout",

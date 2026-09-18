@@ -53,4 +53,7 @@ if [ -n "$SELECTED" ]; then
 
     # 3. Recargar Waybar
     pkill waybar && waybar &
+
+    # 4. Forzar la recarga de colores en todas las instancias abiertas de Kitty
+    kill -USR1 $(pgrep kitty)
 fi

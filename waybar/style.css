@@ -1,66 +1,213 @@
 @import url("/home/noldee/.cache/wal/colors-waybar.css");
 
+/* ─────────────────────────────────────────
+   Base
+   ───────────────────────────────────────── */
+
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", sans-serif;
+
+    font-family: "JetBrainsMono Nerd Font";
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 600;
+
     min-height: 0;
 }
 
 window#waybar {
-    background-color: transparent;
+    background: transparent;
     color: @foreground;
 }
 
-/* Modulos capsula con el fondo del wallpaper */
-#clock,
+
+/* ─────────────────────────────────────────
+   General modules
+   ───────────────────────────────────────── */
+
+#custom-launcher,
 #workspaces,
 #window,
-#temperature,
 #pulseaudio,
-#network {
-    background-color: @background;
-    color: @foreground;
-    padding: 2px 12px;
+#network,
+#temperature,
+#clock,
+#custom-power {
+
+    background: @background;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    padding: 5px 12px;
+
+    border: 1px solid alpha(@color4, 0.35);
     border-radius: 12px;
-    border: 1px solid @color4;
 }
 
-/* Botones circulares sin max-width */
-#custom-launcher,
-#custom-power {
-    background-color: @background;
-    border-radius: 50%;
-    border: 1px solid @color4;
-    padding: 0px 8px;
-}
+
+/* ─────────────────────────────────────────
+   Launcher
+   ───────────────────────────────────────── */
 
 #custom-launcher {
+    margin-left: 2px;
+    margin-right: 0;
+
+    padding: 5px 14px;
+
     color: @color4;
-    font-size: 16px;
+
+    border-radius: 14px;
 }
 
-#custom-power {
-    color: @color1;
-    font-size: 15px;
-}
+/* ─────────────────────────────────────────
+   Workspaces
+   ───────────────────────────────────────── */
 
-#clock { color: @color3; }
-#window { color: @color5; }
-#temperature { color: @color6; }
-#pulseaudio { color: @color2; }
-#network { color: @color4; }
+#workspaces {
+    padding: 3px 5px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 14px;
+}
 
 #workspaces button {
-    padding: 0 8px;
-    color: @color8;
+    padding: 3px 10px;
+    color: alpha(@foreground, 0.45);
     background: transparent;
-    border-radius: 8px;
+    border-radius: 9px;
 }
 
 #workspaces button.active {
+    background: @color4;
     color: @background;
-    background-color: @color4;
+}
+
+/* Forzamos a que NO cambie nada al pasar el mouse o recibir foco */
+#workspaces button:hover,
+#workspaces button:focus,
+#workspaces button.active:hover {
+    background: transparent;
+    color: alpha(@foreground, 0.45);
+    box-shadow: none;
+    text-shadow: none;
+}
+
+/* Mantenemos el color correcto solo si es el workspace activo, sin importar el hover */
+#workspaces button.active {
+    background: @color4;
+    color: @background;
+}
+
+/* ─────────────────────────────────────────
+   Center window
+   ───────────────────────────────────────── */
+
+#window {
+    padding-left: 18px;
+    padding-right: 18px;
+
+    color: @color5;
+
+    border-color: alpha(@color5, 0.35);
+}
+
+window#waybar.empty #window {
+    background: transparent;
+    border-color: transparent;
+}
+
+
+/* ─────────────────────────────────────────
+   Audio
+   ───────────────────────────────────────── */
+
+#pulseaudio {
+    color: @color2;
+    border-color: alpha(@color2, 0.35);
+
+    margin-right: 0;
+}
+
+
+/* ─────────────────────────────────────────
+   Network
+   ───────────────────────────────────────── */
+
+#network {
+    color: @color4;
+    border-color: alpha(@color4, 0.35);
+
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#network.disconnected {
+    color: @color1;
+    border-color: alpha(@color1, 0.35);
+}
+
+
+/* ─────────────────────────────────────────
+   Temperature
+   ───────────────────────────────────────── */
+
+#temperature {
+    color: @color6;
+    border-color: alpha(@color6, 0.35);
+
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#temperature.critical {
+    color: @color1;
+    border-color: alpha(@color1, 0.5);
+}
+
+
+/* ─────────────────────────────────────────
+   Clock
+   ───────────────────────────────────────── */
+
+#clock {
+    color: @color3;
+    border-color: alpha(@color3, 0.35);
+
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+
+/* ─────────────────────────────────────────
+   Power
+   ───────────────────────────────────────── */
+
+#custom-power {
+    margin-left: 0;
+    margin-right: 2px;
+
+    padding-left: 11px;
+    padding-right: 11px;
+
+    color: @color1;
+
+    border-radius: 50%;
+    border-color: alpha(@color1, 0.35);
+}
+
+
+/* ─────────────────────────────────────────
+   Tooltips
+   ───────────────────────────────────────── */
+
+tooltip {
+    background: @background;
+    color: @foreground;
+
+    border: 1px solid alpha(@color4, 0.4);
+    border-radius: 10px;
+
+    padding: 8px 12px;
 }

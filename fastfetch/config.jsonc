@@ -1,104 +1,51 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
-
-  "logo": {
-    "type": "small",
-    "padding": {
-      "top": 1,
-      "right": 3
-    }
-  },
-
-  "display": {
-    "separator": "  ",
-    "key": {
-      "width": 13
-    },
-    "color": {
-      "keys": "blue",
-      "title": "green"
-    }
-  },
-
-  "modules": [
-    {
-      "type": "title",
-      "format": "{user-name}@{host-name}"
-    },
-    "separator",
-
-    {
-      "type": "os",
-      "key": "  OS"
-    },
-    {
-      "type": "kernel",
-      "key": "󰒓  Kernel"
-    },
-    {
-      "type": "uptime",
-      "key": "󰅐  Uptime"
-    },
-    {
-      "type": "packages",
-      "key": "󰏖  Packages"
-    },
-
-    "break",
-
-    {
-      "type": "de",
-      "key": "󰍹  DE"
-    },
-    {
-      "type": "wm",
-      "key": "󰖯  WM"
-    },
-    {
-      "type": "terminal",
-      "key": "  Terminal"
-    },
-    {
-      "type": "shell",
-      "key": "󰆍  Shell"
-    },
-
-    "break",
-
-    {
-      "type": "cpu",
-      "key": "󰻠  CPU"
-    },
-    {
-      "type": "gpu",
-      "key": "󰢮  GPU",
-      "format": "Intel HD Graphics"
-    },
-    {
-      "type": "memory",
-      "key": "󰍛  Memory"
-    },
-    {
-      "type": "disk",
-      "key": "󰋊  Disk"
-    },
-
-    "break",
-
-    {
-      "type": "theme",
-      "key": "󰉼  Theme"
-    },
-    {
-      "type": "icons",
-      "key": "󰀻  Icons"
-    },
-    {
-      "type": "font",
-      "key": "󰛖  Font"
-    },
-
-    "break",
-    "colors"
-  ]
+	"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+	"logo": {
+		"type": "auto",
+		"source": "/home/noldee/.config/fastfetch/arch.txt"
+	},
+	"display": {
+		"separator": " ── ",
+		"key": {
+			"width": 12
+		}
+	},
+	"modules": [
+		"title",
+		"separator",
+		{
+			"type": "custom",
+			"format": "┌────────────────── Hardware ──────────────────┐"
+		},
+		"os",
+		"kernel",
+		"uptime",
+		"cpu",
+		{
+			"type": "gpu",
+			"key": "GPU",
+			"format": "Intel HD Graphics"
+		},
+		"memory",
+		"disk",
+		{
+			"type": "custom",
+			"format": "└──────────────────────────────────────────────┘"
+		},
+		{
+			"type": "custom",
+			"format": "┌────────────────── Software ──────────────────┐"
+		},
+		"packages",
+		"shell",
+		"display",
+		"wm",
+		"terminal",
+		"locale",
+		{
+			"type": "custom",
+			"format": "└──────────────────────────────────────────────┘"
+		},
+		"colors"
+	]
 }
