@@ -1,0 +1,12 @@
+# Configuración general de Wofi
+show=drun
+width=500
+height=400
+always_parse_args=true
+show_all=false
+term=kitty
+hide_scroll=true
+
+# Habilitar íconos
+allow_images=true
+image_size=24

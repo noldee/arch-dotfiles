@@ -1,0 +1,75 @@
+/* ==========================================================================
+   WOFI CONFIG - GRUVBOX THEME
+   ========================================================================== */
+
+/* Main Wofi window container */
+window {
+    margin: 0px;
+    border: 2px solid #d65d0e;
+    background-color: rgba(29, 32, 33, 0.95);
+    border-radius: 12px;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 14px;
+}
+
+/* Search bar / Input field */
+#input {
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    color: #ebdbb2;
+    background-color: #3c3836;
+    padding: 8px 12px;
+}
+
+/* Inner elements layout container */
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Outer layout wrapper */
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Scroll area styling */
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+/* Text label styling inside items */
+#text {
+    margin: 5px;
+    border: none;
+    color: #ebdbb2;
+}
+
+/* Unselected entry items */
+#entry {
+    border-radius: 8px;
+    padding: 6px 10px;
+    margin: 2px 5px;
+}
+
+/* Active / Selected item highlight */
+#entry:selected {
+    background-color: #d65d0e;
+    border-radius: 8px;
+}
+
+/* Text color for active / selected item */
+#entry:selected #text {
+    color: #1d2021;
+    font-weight: bold;
+}
+
+/* Icons styling */
+#img {
+    margin-right: 10px;
+    background-color: transparent;
+}

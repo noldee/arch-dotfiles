@@ -1,140 +1,66 @@
+@import url("/home/noldee/.cache/wal/colors-waybar.css");
+
 * {
-    font-family: "JetBrainsMono Nerd Font", "FontAwesome", sans-serif;
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
     font-size: 13px;
+    font-weight: bold;
     min-height: 0;
 }
 
 window#waybar {
     background-color: transparent;
-    color: #ebdbb2;
+    color: @foreground;
 }
 
-#workspaces {
-    background-color: rgba(29, 32, 33, 0.9);
-    border-radius: 12px;
-    margin: 5px 4px;
-    padding: 3px;
-}
-
-#workspaces button {
-    padding: 0;
-    min-width: 22px;
-    min-height: 22px;
-    background-color: transparent;
-    color: #a89984;
-    border-radius: 50%;
-    margin: 0 3px;
-    font-size: 11px;
-}
-
-#workspaces button:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-#workspaces button.active {
-    background-color: #d65d0e;
-    color: #1d2021;
-}
-
-#workspaces button.urgent {
-    background-color: #cc241d;
-    color: #ebdbb2;
-}
-
-#window {
-    background-color: rgba(29, 32, 33, 0.9);
-    border-radius: 12px;
-    margin: 5px 4px;
-    padding: 0 14px;
-    color: #a89984;
-    font-style: italic;
-}
-
+/* Modulos capsula con el fondo del wallpaper */
 #clock,
-#battery,
-#cpu,
-#memory,
+#workspaces,
+#window,
 #temperature,
-#network,
 #pulseaudio,
-#idle_inhibitor {
-    background-color: rgba(29, 32, 33, 0.9);
+#network {
+    background-color: @background;
+    color: @foreground;
+    padding: 2px 12px;
     border-radius: 12px;
-    padding: 0 12px;
-    margin: 5px 3px;
-    color: #ebdbb2;
+    border: 1px solid @color4;
 }
 
-#tray {
-    background-color: rgba(29, 32, 33, 0.9);
-    border-radius: 12px;
-    padding: 0 10px;
-    margin: 5px 3px;
+/* Botones circulares sin max-width */
+#custom-launcher,
+#custom-power {
+    background-color: @background;
+    border-radius: 50%;
+    border: 1px solid @color4;
+    padding: 0px 8px;
+}
+
+#custom-launcher {
+    color: @color4;
+    font-size: 16px;
 }
 
 #custom-power {
-    background-color: rgba(29, 32, 33, 0.9);
-    border-radius: 12px;
-    padding: 0 14px;
-    margin: 5px 6px 5px 3px;
-    color: #cc241d;
-    font-weight: bold;
+    color: @color1;
+    font-size: 15px;
 }
 
-#clock {
-    font-weight: bold;
-    color: #83a598;
+#clock { color: @color3; }
+#window { color: @color5; }
+#temperature { color: @color6; }
+#pulseaudio { color: @color2; }
+#network { color: @color4; }
+
+#workspaces button {
+    padding: 0 8px;
+    color: @color8;
+    background: transparent;
+    border-radius: 8px;
 }
 
-#battery {
-    color: #b8bb26;
-}
-
-#battery.warning {
-    color: #fabd2f;
-}
-
-#battery.critical {
-    color: #fb4934;
-    font-weight: bold;
-}
-
-#cpu {
-    color: #d3869b;
-}
-
-#memory {
-    color: #fe8019;
-}
-
-#temperature {
-    color: #fabd2f;
-}
-
-#temperature.critical {
-    color: #fb4934;
-}
-
-#network {
-    color: #8ec07c;
-}
-
-#network.disconnected {
-    color: #fb4934;
-}
-
-#pulseaudio {
-    color: #ebdbb2;
-}
-
-#pulseaudio.muted {
-    color: #928374;
-}
-
-#idle_inhibitor {
-    color: #a89984;
-}
-
-#idle_inhibitor.activated {
-    color: #83a598;
+#workspaces button.active {
+    color: @background;
+    background-color: @color4;
 }

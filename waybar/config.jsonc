@@ -1,119 +1,81 @@
-// -*- mode: jsonc -*-
-// -*- mode: jsonc -*-
 {
-    "layer": "top",
-    "position": "top",
-    "height": 40,
-    "margin-top": 14,
-    "spacing": 4,
-
-    "modules-left": [
-        "hyprland/workspaces"
-    ],
-    "modules-center": [
-        "hyprland/window"
-    ],
-    "modules-right": [
-        "idle_inhibitor",
-        "pulseaudio",
-        "network",
-        "cpu",
-        "memory",
-        "temperature",
-        "battery",
-        "clock",
-        "tray",
-        "custom/power"
-    ],
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{id}"
-    },
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "\uf06e",
-            "deactivated": "\uf070"
-        }
-    },
-
-    "tray": {
-        "spacing": 10
-    },
-
-    "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%I:%M %p}",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-
-    "cpu": {
-        "format": "\uf2db {usage}%",
-        "tooltip": false
-    },
-
-    "memory": {
-        "format": "\uf538 {}%"
-    },
-
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["\uf2cb", "\uf2c9", "\uf2c7"]
-    },
-
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": "\uf0e7 {capacity}%",
-        "format-plugged": "\uf1e6 {capacity}%",
-        "format-alt": "{icon} {time}",
-        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
-    },
-
-    "network": {
-        "format-wifi": "\uf1eb {essid} ({signalStrength}%)",
-        "format-ethernet": "\uf796 Conectado",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "\uf1eb {ifname} (No IP)",
-        "format-disconnected": "\uf1eb Desconectado",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-
-    "pulseaudio": {
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": "\uf6a9 {icon} {format_source}",
-        "format-muted": "\uf6a9 {format_source}",
-        "format-source": "\uf130 {volume}%",
-        "format-source-muted": "\uf131",
-        "format-icons": {
-            "headphone": "\uf025",
-            "hands-free": "\uf655",
-            "headset": "\uf655",
-            "phone": "\uf095",
-            "portable": "\uf095",
-            "car": "\uf1b9",
-            "default": ["\uf026", "\uf027", "\uf028"]
-        },
-        "on-click": "pavucontrol"
-    },
-
-    "custom/power": {
-        "format": "\uf011",
-        "tooltip": false,
-        "menu": "on-click",
-        "menu-file": "$HOME/.config/waybar/power_menu.xml",
-        "menu-actions": {
-            "shutdown": "shutdown now",
-            "reboot": "reboot",
-            "suspend": "systemctl suspend",
-            "logout": "hyprctl dispatch exit"
-        }
-    }
+	"layer": "top",
+	"position": "top",
+	"margin-top": 6,
+	"margin-left": 12,
+	"margin-right": 12,
+	"spacing": 6,
+	"modules-left": [
+		"custom/launcher",
+		"clock",
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"hyprland/window"
+	],
+	"modules-right": [
+		"temperature",
+		"pulseaudio",
+		"network",
+		"custom/power"
+	],
+	"custom/launcher": {
+		"format": "󰣇",
+		"on-click": "wofi --show drun",
+		"tooltip": false
+	},
+	"clock": {
+		"format": "󰥔  {:%I:%M %p}",
+		"format-alt": "󰃭  {:%Y-%m-%d}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+	"hyprland/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"active-only": false,
+		"on-click": "activate",
+		"format": "{name}",
+		"persistent-workspaces": {
+			"*": [
+				1,
+				2
+			]
+		}
+	},
+	"hyprland/window": {
+		"format": "{title}",
+		"max-length": 30,
+		"rewrite": {
+			"": "Desktop"
+		},
+		"separate-outputs": true
+	},
+	"temperature": {
+		"critical-threshold": 80,
+		"format": " {temperatureC}°C"
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": "󰝟 Mute",
+		"format-icons": {
+			"default": [
+				"󰕿",
+				"󰖀",
+				"󰕾"
+			]
+		},
+		"on-click": "pavucontrol"
+	},
+	"network": {
+		"format-ethernet": "󰈀",
+		"format-wifi": "󰤨",
+		"format-disconnected": "󰤮",
+		"tooltip-format": "{ifname}: {ipaddr}",
+		"on-click": "nm-connection-editor"
+	},
+	"custom/power": {
+		"format": "󰐥",
+		"on-click": "wlogout",
+		"tooltip": false
+	}
 }
