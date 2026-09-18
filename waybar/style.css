@@ -6,11 +6,11 @@
 
 window#waybar {
     background-color: transparent;
-    color: #eceff4;
+    color: #ebdbb2;
 }
 
 #workspaces {
-    background-color: rgba(46, 52, 64, 0.9);
+    background-color: rgba(29, 32, 33, 0.9);
     border-radius: 12px;
     margin: 5px 4px;
     padding: 3px;
@@ -21,7 +21,7 @@ window#waybar {
     min-width: 22px;
     min-height: 22px;
     background-color: transparent;
-    color: #d8dee9;
+    color: #a89984;
     border-radius: 50%;
     margin: 0 3px;
     font-size: 11px;
@@ -32,21 +32,21 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color: #5e81ac;
-    color: #eceff4;
+    background-color: #d65d0e;
+    color: #1d2021;
 }
 
 #workspaces button.urgent {
-    background-color: #bf616a;
-    color: #eceff4;
+    background-color: #cc241d;
+    color: #ebdbb2;
 }
 
 #window {
-    background-color: rgba(46, 52, 64, 0.9);
+    background-color: rgba(29, 32, 33, 0.9);
     border-radius: 12px;
     margin: 5px 4px;
     padding: 0 14px;
-    color: #d8dee9;
+    color: #a89984;
     font-style: italic;
 }
 
@@ -58,83 +58,83 @@ window#waybar {
 #network,
 #pulseaudio,
 #idle_inhibitor {
-    background-color: rgba(46, 52, 64, 0.9);
+    background-color: rgba(29, 32, 33, 0.9);
     border-radius: 12px;
     padding: 0 12px;
     margin: 5px 3px;
-    color: #eceff4;
+    color: #ebdbb2;
 }
 
 #tray {
-    background-color: rgba(46, 52, 64, 0.9);
+    background-color: rgba(29, 32, 33, 0.9);
     border-radius: 12px;
     padding: 0 10px;
     margin: 5px 3px;
 }
 
 #custom-power {
-    background-color: rgba(46, 52, 64, 0.9);
+    background-color: rgba(29, 32, 33, 0.9);
     border-radius: 12px;
     padding: 0 14px;
     margin: 5px 6px 5px 3px;
-    color: #bf616a;
+    color: #cc241d;
     font-weight: bold;
 }
 
 #clock {
     font-weight: bold;
-    color: #88c0d0;
+    color: #83a598;
 }
 
 #battery {
-    color: #a3be8c;
+    color: #b8bb26;
 }
 
 #battery.warning {
-    color: #ebcb8b;
+    color: #fabd2f;
 }
 
 #battery.critical {
-    color: #bf616a;
+    color: #fb4934;
     font-weight: bold;
 }
 
 #cpu {
-    color: #b48ead;
+    color: #d3869b;
 }
 
 #memory {
-    color: #d08770;
+    color: #fe8019;
 }
 
 #temperature {
-    color: #ebcb8b;
+    color: #fabd2f;
 }
 
 #temperature.critical {
-    color: #bf616a;
+    color: #fb4934;
 }
 
 #network {
-    color: #88c0d0;
+    color: #8ec07c;
 }
 
 #network.disconnected {
-    color: #bf616a;
+    color: #fb4934;
 }
 
 #pulseaudio {
-    color: #eceff4;
+    color: #ebdbb2;
 }
 
 #pulseaudio.muted {
-    color: #4c566a;
+    color: #928374;
 }
 
 #idle_inhibitor {
-    color: #d8dee9;
+    color: #a89984;
 }
 
 #idle_inhibitor.activated {
-    color: #88c0d0;
+    color: #83a598;
 }
