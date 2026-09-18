@@ -1,0 +1,140 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "FontAwesome", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #eceff4;
+}
+
+#workspaces {
+    background-color: rgba(46, 52, 64, 0.9);
+    border-radius: 12px;
+    margin: 5px 4px;
+    padding: 3px;
+}
+
+#workspaces button {
+    padding: 0;
+    min-width: 22px;
+    min-height: 22px;
+    background-color: transparent;
+    color: #d8dee9;
+    border-radius: 50%;
+    margin: 0 3px;
+    font-size: 11px;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.active {
+    background-color: #5e81ac;
+    color: #eceff4;
+}
+
+#workspaces button.urgent {
+    background-color: #bf616a;
+    color: #eceff4;
+}
+
+#window {
+    background-color: rgba(46, 52, 64, 0.9);
+    border-radius: 12px;
+    margin: 5px 4px;
+    padding: 0 14px;
+    color: #d8dee9;
+    font-style: italic;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#idle_inhibitor {
+    background-color: rgba(46, 52, 64, 0.9);
+    border-radius: 12px;
+    padding: 0 12px;
+    margin: 5px 3px;
+    color: #eceff4;
+}
+
+#tray {
+    background-color: rgba(46, 52, 64, 0.9);
+    border-radius: 12px;
+    padding: 0 10px;
+    margin: 5px 3px;
+}
+
+#custom-power {
+    background-color: rgba(46, 52, 64, 0.9);
+    border-radius: 12px;
+    padding: 0 14px;
+    margin: 5px 6px 5px 3px;
+    color: #bf616a;
+    font-weight: bold;
+}
+
+#clock {
+    font-weight: bold;
+    color: #88c0d0;
+}
+
+#battery {
+    color: #a3be8c;
+}
+
+#battery.warning {
+    color: #ebcb8b;
+}
+
+#battery.critical {
+    color: #bf616a;
+    font-weight: bold;
+}
+
+#cpu {
+    color: #b48ead;
+}
+
+#memory {
+    color: #d08770;
+}
+
+#temperature {
+    color: #ebcb8b;
+}
+
+#temperature.critical {
+    color: #bf616a;
+}
+
+#network {
+    color: #88c0d0;
+}
+
+#network.disconnected {
+    color: #bf616a;
+}
+
+#pulseaudio {
+    color: #eceff4;
+}
+
+#pulseaudio.muted {
+    color: #4c566a;
+}
+
+#idle_inhibitor {
+    color: #d8dee9;
+}
+
+#idle_inhibitor.activated {
+    color: #88c0d0;
+}
