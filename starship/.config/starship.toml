@@ -1,0 +1,28 @@
+format = "$os$directory$git_branch$git_status$character"
+
+[os]
+format = "[$symbol](bold blue) "
+disabled = false
+
+[os.symbols]
+Arch = "\uf303"
+
+[directory]
+style = "bold cyan"
+format = "[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 2
+truncate_to_repo = true
+home_symbol = "\uf015 ~"
+
+[git_branch]
+symbol = "\ue0a0 "
+style = "bold green"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold yellow"
+format = "([\\[$all_status$ahead_behind\\]]($style)) "
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
