@@ -25,3 +25,11 @@ fastfetch() {
         command fastfetch "$@"
     fi
 }
+
+alias fm='yazi'
+
+eval "$(starship init bash)"
+
+alias ls='eza --icons'
+alias ll='eza -l --icons'
+alias la='eza -la --icons'
