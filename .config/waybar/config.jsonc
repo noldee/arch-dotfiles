@@ -7,59 +7,76 @@
 	"spacing": 8,
 	"modules-left": [
 		"custom/launcher",
-		"hyprland/workspaces"
+		"hyprland/workspaces",
+		"hyprland/window"
 	],
 	"modules-center": [
-		"hyprland/window"
+		"clock"
 	],
 	"modules-right": [
 		"pulseaudio",
 		"network",
 		"temperature",
-		"clock",
 		"custom/power"
 	],
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	// Launcher
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	"custom/launcher": {
 		"format": "󰣇",
 		"on-click": "wofi --show drun",
 		"tooltip": false
 	},
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	// Workspaces
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
 		"active-only": false,
 		"on-click": "activate",
-		"format": "{name}",
+		"format": "{icon}",
+		"format-icons": {
+			"1": "󰮯",
+			"2": "󰊠",
+			"3": "󰊠",
+			"4": "󰊠",
+			"5": "󰊠",
+			"default": "󰊠"
+		},
 		"persistent-workspaces": {
 			"*": [
 				1,
-				2
+				2,
+				3,
+				4
 			]
 		}
 	},
-	// ─────────────────────────────────────
-	// Active window
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
+	// Ventana activa
+	// ─────────────────────────────────────────
 	"hyprland/window": {
 		"format": "{title}",
-		"max-length": 45,
+		"separate-outputs": true,
+		"max-length": 25,
 		"rewrite": {
-			"": "Desktop"
-		},
-		"separate-outputs": true
+			"^(.*)$": "󱂬 $1"
+		}
 	},
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
+	// Clock
+	// ─────────────────────────────────────────
+	"clock": {
+		"format": "󰥔  {:%I:%M %p  •  󰃭  %a %d %b}",
+		"tooltip-format": "<big>󰃭  {:%A, %d %B %Y}</big>\n<tt>{calendar}</tt>"
+	},
+	// ─────────────────────────────────────────
 	// Audio
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	"pulseaudio": {
-		"format": "{icon} {volume}%",
-		"format-muted": "󰝟 Muted",
+		"format": "{icon}  {volume}%",
+		"format-muted": "󰝟",
 		"format-icons": {
 			"default": [
 				"󰕿",
@@ -72,35 +89,27 @@
 		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
 		"scroll-step": 5
 	},
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	// Network
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	"network": {
 		"format-wifi": "󰤨  {essid}",
-		"format-ethernet": "󰈀  Ethernet",
+		"format-ethernet": "󰤨  Wi-Fi",
 		"format-disconnected": "󰤮  Offline",
-		"tooltip-format": "{ifname}\n{ipaddr}",
+		"tooltip-format": "󰌘 {ifname}\n󰩟 {ipaddr}",
 		"on-click": "nm-connection-editor"
 	},
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	// Temperature
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	"temperature": {
 		"critical-threshold": 80,
-		"format": "󰔏  {temperatureC}°C",
-		"tooltip-format": "CPU: {temperatureC}°C"
+		"format": "󰍛  {temperatureC}°C",
+		"tooltip-format": "󰍛  CPU: {temperatureC}°C"
 	},
-	// ─────────────────────────────────────
-	// Clock
-	// ─────────────────────────────────────
-	"clock": {
-		"format": "󰥔  {:%H:%M}",
-		"format-alt": "󰃭  {:%a %d %b %Y}",
-		"tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt>{calendar}</tt>"
-	},
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	// Power
-	// ─────────────────────────────────────
+	// ─────────────────────────────────────────
 	"custom/power": {
 		"format": "󰐥",
 		"on-click": "wlogout",

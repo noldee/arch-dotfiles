@@ -1,4 +1,5 @@
 add_newline = false
+
 format = "$os$directory$git_branch$git_status$character"
 
 [os]
@@ -6,24 +7,41 @@ format = "[$symbol](bold blue) "
 disabled = false
 
 [os.symbols]
-Arch = "\uf303"
+Arch = ""
 
 [directory]
 style = "bold cyan"
 format = "[$path]($style)[$read_only]($read_only_style) "
 truncation_length = 2
 truncate_to_repo = true
-home_symbol = "\uf015 ~"
+home_symbol = " ~"
+read_only = " 󰌾"
+read_only_style = "bold red"
 
 [git_branch]
-symbol = "\ue0a0 "
-style = "bold green"
-format = "on [$symbol$branch]($style) "
+disabled = false
+format = "[$symbol$branch]($style) "
+symbol = " "
+style = "bold purple"
+truncation_symbol = "…"
 
 [git_status]
-style = "bold yellow"
-format = "([\\[$all_status$ahead_behind\\]]($style)) "
+disabled = false
+format = "([$all_status$ahead_behind]($style)) "
+style = "bold red"
+
+stashed = "󰏗"
+ahead = "󰁝"
+behind = "󰁅"
+diverged = "󰹹"
+conflicted = "󰀨"
+deleted = "󰆴"
+renamed = "󰁕"
+modified = "󰏫"
+staged = "󰐕"
+untracked = "󰞋"
 
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold cyan)"

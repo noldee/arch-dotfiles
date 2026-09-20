@@ -20,31 +20,28 @@ window#waybar {
     color: @foreground;
 }
 
-
 /* ─────────────────────────────────────────
-   General modules
+   Módulos individuales
    ───────────────────────────────────────── */
 
 #custom-launcher,
 #workspaces,
 #window,
+#clock,
 #pulseaudio,
 #network,
 #temperature,
-#clock,
 #custom-power {
-
-    background: @background;
+    background: alpha(@background, 0.92);
 
     margin-top: 5px;
     margin-bottom: 5px;
 
     padding: 5px 12px;
 
-    border: 1px solid alpha(@color4, 0.35);
+    border: 1px solid alpha(@color4, 0.30);
     border-radius: 12px;
 }
-
 
 /* ─────────────────────────────────────────
    Launcher
@@ -67,15 +64,20 @@ window#waybar {
 
 #workspaces {
     padding: 3px 5px;
+
     margin-left: 0;
     margin-right: 0;
+
     border-radius: 14px;
 }
 
 #workspaces button {
-    padding: 3px 10px;
+    padding: 3px 8px;
+
     color: alpha(@foreground, 0.45);
+
     background: transparent;
+
     border-radius: 9px;
 }
 
@@ -84,40 +86,40 @@ window#waybar {
     color: @background;
 }
 
-/* Forzamos a que NO cambie nada al pasar el mouse o recibir foco */
-#workspaces button:hover,
-#workspaces button:focus,
-#workspaces button.active:hover {
-    background: transparent;
-    color: alpha(@foreground, 0.45);
-    box-shadow: none;
-    text-shadow: none;
-}
-
-/* Mantenemos el color correcto solo si es el workspace activo, sin importar el hover */
-#workspaces button.active {
-    background: @color4;
-    color: @background;
-}
-
 /* ─────────────────────────────────────────
-   Center window
+   Ventana activa
    ───────────────────────────────────────── */
 
 #window {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding: 5px 10px;
+
+    margin-left: 0;
+    margin-right: 0;
 
     color: @color5;
 
-    border-color: alpha(@color5, 0.35);
+    border: 1px solid alpha(@color5, 0.35);
+    border-radius: 12px;
 }
 
-window#waybar.empty #window {
-    background: transparent;
-    border-color: transparent;
+/* Cuando no hay ninguna ventana activa */
+#window.empty {
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
+/* ─────────────────────────────────────────
+   Clock
+   ───────────────────────────────────────── */
+
+#clock {
+    color: @color3;
+
+    border-color: alpha(@color3, 0.35);
+
+    padding-left: 16px;
+    padding-right: 16px;
+}
 
 /* ─────────────────────────────────────────
    Audio
@@ -125,11 +127,17 @@ window#waybar.empty #window {
 
 #pulseaudio {
     color: @color2;
+
     border-color: alpha(@color2, 0.35);
 
     margin-right: 0;
 }
 
+#pulseaudio.muted {
+    color: @color1;
+
+    border-color: alpha(@color1, 0.35);
+}
 
 /* ─────────────────────────────────────────
    Network
@@ -137,6 +145,7 @@ window#waybar.empty #window {
 
 #network {
     color: @color4;
+
     border-color: alpha(@color4, 0.35);
 
     margin-left: 0;
@@ -145,9 +154,9 @@ window#waybar.empty #window {
 
 #network.disconnected {
     color: @color1;
+
     border-color: alpha(@color1, 0.35);
 }
-
 
 /* ─────────────────────────────────────────
    Temperature
@@ -155,6 +164,7 @@ window#waybar.empty #window {
 
 #temperature {
     color: @color6;
+
     border-color: alpha(@color6, 0.35);
 
     margin-left: 0;
@@ -163,22 +173,9 @@ window#waybar.empty #window {
 
 #temperature.critical {
     color: @color1;
+
     border-color: alpha(@color1, 0.5);
 }
-
-
-/* ─────────────────────────────────────────
-   Clock
-   ───────────────────────────────────────── */
-
-#clock {
-    color: @color3;
-    border-color: alpha(@color3, 0.35);
-
-    padding-left: 14px;
-    padding-right: 14px;
-}
-
 
 /* ─────────────────────────────────────────
    Power
@@ -194,9 +191,9 @@ window#waybar.empty #window {
     color: @color1;
 
     border-radius: 50%;
+
     border-color: alpha(@color1, 0.35);
 }
-
 
 /* ─────────────────────────────────────────
    Tooltips
@@ -211,3 +208,4 @@ tooltip {
 
     padding: 8px 12px;
 }
+
