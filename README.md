@@ -1,13 +1,6 @@
+🛠️ Arch Dotfiles (In Development )
 
-## Wallpapers
-Only one example wallpaper is included at `wallpapers/example.png`.
-Add your own images to `~/Pictures/wallpapers/` (not fully tracked in this repo).
-Use `Super + W` to open the wallpaper selector (wofi) and switch between them.
+Personal dotfiles for a fast, minimal, and dynamic Wayland setup on Arch Linux. This repository is currently a work in progress. 
 
-## Pywal (dynamic colors)
-This setup uses pywal for dynamic color generation from wallpapers.
-After adding your own wallpaper to `~/Pictures/wallpapers/`, run:
-\`\`\`
-wal -i ~/Pictures/wallpapers/your_image.jpg
-\`\`\`
-This regenerates colors in `~/.cache/wal/` used by waybar, rofi, and kitty.
+![Arch Linux Setup](https://i.imgur.com/fPKHW6d.png)
+![System Info](https://i.imgur.com/CC01hIx.png)
