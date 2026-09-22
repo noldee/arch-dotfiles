@@ -37,7 +37,7 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal = "kitty"
+local terminal = "footclient"
 local fileManager = "dolphin"
 local menu = "hyprlauncher"
 
@@ -53,9 +53,12 @@ local menu = "hyprlauncher"
 hl.on("hyprland.start", function()
 	-- hl.exec_cmd(terminal)
 	-- hl.exec_cmd("nm-applet")
+
 	hl.exec_cmd("awww-daemon")
 	hl.exec_cmd("sh -c 'sleep 0.5; awww restore'")
 	hl.exec_cmd("sh -c 'wal -R -n; waybar'")
+
+	hl.exec_cmd("sh -c 'sleep 0.8; foot --server'")
 end)
 
 -------------------------------

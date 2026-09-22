@@ -56,6 +56,8 @@ if [ -n "$SELECTED" ]; then
 
     # 4. Forzar la recarga de colores en todas las instancias abiertas de Kitty
     kill -USR1 $(pgrep kitty)
+    kill -HUP $(pgrep -x foot) 2>/dev/null
+
 
     # 5. Recargar Hyprland para que tome los nuevos colores del borde
     hyprctl reload

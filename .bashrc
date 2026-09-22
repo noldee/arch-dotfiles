@@ -25,7 +25,7 @@ fastfetch() {
     fi
 
     if [[ -n "$logo" ]]; then
-        command fastfetch --logo "$logo" --logo-type kitty-direct "$@"
+        command fastfetch --logo "$logo" --logo-type sixel "$@"
     else
         command fastfetch "$@"
     fi
