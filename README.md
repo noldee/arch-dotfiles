@@ -1,4 +1,4 @@
-🛠️ Arch Dotfiles (In Development )
+# 🛠️ Arch Linux • Hyprland Dotfiles (In Development )
 
 Personal dotfiles for a fast, minimal, and dynamic Wayland setup on Arch Linux. This repository is currently a work in progress. 
 
