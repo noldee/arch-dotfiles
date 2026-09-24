@@ -10,7 +10,7 @@ window {
     width: 800px;
     background-color: @background;
     border: 2px;
-    border-color: @selected-normal-background;
+    border-color: @active-background;
     border-radius: 20px;
     padding: 30px;
 }
@@ -28,22 +28,20 @@ listview {
 
 element {
     orientation: vertical;
-    background-color: @background;
+    background-color: transparent;
     border-radius: 14px;
     padding: 20px 10px;
 }
 
 element selected {
-    background-color: @selected-normal-background;
+    background-color: @selected-active-background;
+    text-color: @background;
 }
 
 element-text {
     horizontal-align: 0.5;
     vertical-align: 0.5;
-    text-color: @foreground;
+    text-color: inherit;
+    background-color: inherit;
     font-weight: bold;
-}
-
-element selected element-text {
-    text-color: @background;
 }
